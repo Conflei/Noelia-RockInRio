@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class AppController : MonoBehaviour
 {
@@ -48,7 +49,7 @@ public class AppController : MonoBehaviour
     public IEnumerator HideAndShow(GameObject old, GameObject newScreen )
     {
         old.GetComponent<ScreenBase>().HideScreen();
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         newScreen.GetComponent<ScreenBase>().ShowScreen();
         yield return null;
     }
@@ -64,14 +65,15 @@ public enum Screens
     Home, Music, Reward, Survey, Final
 }
 
+[System.Serializable]
 public class User
 { 
-    public string name;
+    public string nombre;
     public string cedula;
     public string nacimiento;
-    public string mail;
-    public string phone;
+    public string email;
+    public string telefono;
     public string date;
-    public string underage;
+    public string mayoredad;
     public string reward;
 }
